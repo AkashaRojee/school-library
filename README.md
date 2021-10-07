@@ -8,6 +8,8 @@ Things done so far:
 
 1. Create classes for Person, Student and Teacher
 
+2. Decorate class Person with class Corrector
+
 ## Technologies Used
 
 Ruby
