@@ -10,6 +10,8 @@ Things done so far:
 
 2. Decorate class Person with class Corrector
 
+3. Create associations between classes
+
 ## Technologies Used
 
 Ruby
