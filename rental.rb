@@ -7,12 +7,12 @@ class Rental
     @person = person
   end
 
-  def book=(book)
+  def add_book(book)
     @book = book
     book.rentals.push(self)
   end
 
-  def person=(person)
+  def add_person(person)
     @person = person
     person.rentals.push(self)
   end
