@@ -130,6 +130,7 @@ end
 def main
   books = []
   people = []
+  rentals = []
   loop do
     print_options
     case gets.chomp
