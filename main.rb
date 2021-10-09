@@ -54,7 +54,6 @@ def create_student
   Student.new(age, name, permission.upcase.match?('Y'))
 end
 
-
 def create_person
   loop do
     system 'clear'
@@ -127,6 +126,8 @@ def list_rentals(rentals)
   end
 end
 
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/MethodLength
 def main
   books = []
   people = []
@@ -154,3 +155,5 @@ def main
 end
 
 main
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/MethodLength

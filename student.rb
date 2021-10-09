@@ -1,4 +1,5 @@
 require_relative './person'
+# rubocop:disable Style/OptionalBooleanParameter
 
 class Student < Person
   def initialize(age, name = 'Unknown', parent_permission = true)
@@ -14,3 +15,4 @@ class Student < Person
     "¯\(ツ)/¯"
   end
 end
+# rubocop:enable Style/OptionalBooleanParameter
