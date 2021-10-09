@@ -20,6 +20,18 @@ def create_teacher
   Teacher.new(age, spec, name)
 end
 
+def create_student
+  system 'clear'
+  puts 'Enter the name of the student'
+  name = gets.chomp
+  puts 'Enter the age of the student'
+  age = gets.chomp
+  puts 'Has a parent permission [Y/N]'
+  permission = gets.chomp
+  Student.new(age, name, permission.upcase.match?('Y'))
+end
+
+
 def create_person
   loop do
     system 'clear'
