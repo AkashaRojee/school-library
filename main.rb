@@ -1,17 +1,20 @@
 require_relative './book'
 require_relative './teacher'
 require_relative './student'
+require_relative './rental'
 
 LIST_ALL_BOOKS_CODE = '1'.freeze
 LIST_ALL_PEOPLE_CODE = '2'.freeze
 CREATE_A_PERSON_CODE = '3'.freeze
 CREATE_A_BOOK_CODE = '4'.freeze
+CREATE_A_RENTAL_CODE = '5'.freeze
 
 def print_options
   puts "#{LIST_ALL_BOOKS_CODE}) List all books"
   puts "#{LIST_ALL_PEOPLE_CODE}) List all people"
   puts "#{CREATE_A_PERSON_CODE}) Create a person"
   puts "#{CREATE_A_BOOK_CODE}) Create a book"
+  puts "#{CREATE_A_RENTAL_CODE}) Create a rental"
 end
 
 def create_book
@@ -64,6 +67,54 @@ def create_person
   end
 end
 
+def rental_book(books)
+  loop do
+    puts 'Select a Book from the following list by number '
+    books.each_with_index do |book, i|
+      puts "#{i}) #{book.details}"
+    end
+
+    book = gets.chomp.to_i
+    case book
+    when 0..books.size
+      return books[book]
+    else
+      puts 'That book does not exist'
+    end
+  end
+end
+
+def renting_person(people)
+  puts 'Select a person from the following list by number '
+  people.each_with_index do |person, i|
+    puts "#{i}) #{person.details}"
+  end
+  person = gets.chomp.to_i
+  case person
+  when 0..people.size
+    people[person]
+  end
+end
+
+def date
+  puts 'Enter the date of the rental'
+  gets.chomp
+end
+
+def id
+  puts 'ID of person'
+  gets.chomp.to_i
+end
+
+def create_rental(books, people)
+  system 'clear'
+  book = rental_book(books)
+  person = renting_person(people)
+  user_date = date
+  puts 'Rental created successfully'
+  Rental.new(user_date, book, person)
+end
+
 def main
   books = []
   people = []
@@ -78,6 +129,8 @@ def main
       people.push(create_person)
     when CREATE_A_BOOK_CODE
       books.push(create_book)
+    when CREATE_A_RENTAL_CODE
+      rentals.push(create_rental(books, people))
     end
   end
 end
