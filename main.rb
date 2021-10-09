@@ -8,6 +8,18 @@ def print_options
   puts "#{LIST_ALL_PEOPLE_CODE}) List all people"
 end
 
+def create_teacher
+  system 'clear'
+  puts 'Enter the name of the teacher'
+  name = gets.chomp
+  puts 'Enter the age of the teacher'
+  age = gets.chomp
+  puts 'Enter the specialization'
+  spec = gets.chomp
+  puts 'Teacher created successfully'
+  Teacher.new(age, spec, name)
+end
+
 def create_person
   loop do
     system 'clear'
