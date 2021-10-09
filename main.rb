@@ -1,4 +1,6 @@
 require_relative './book'
+require_relative './teacher'
+require_relative './student'
 
 LIST_ALL_BOOKS_CODE = '1'.freeze
 LIST_ALL_PEOPLE_CODE = '2'.freeze
