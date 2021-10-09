@@ -8,6 +8,16 @@ def print_options
   puts "#{LIST_ALL_PEOPLE_CODE}) List all people"
 end
 
+def create_book
+  system 'clear'
+  puts 'Enter the title of the book'
+  title = gets.chomp
+  puts 'Enter the author of the book'
+  author = gets.chomp
+  puts 'Book created successfully'
+  Book.new(title, author)
+end
+
 def create_teacher
   system 'clear'
   puts 'Enter the name of the teacher'
