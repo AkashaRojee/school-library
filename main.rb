@@ -9,6 +9,7 @@ CREATE_A_PERSON_CODE = '3'.freeze
 CREATE_A_BOOK_CODE = '4'.freeze
 CREATE_A_RENTAL_CODE = '5'.freeze
 LIST_ALL_RENTALS_CODE = '6'.freeze
+EXIT_CODE = '7'.freeze
 
 def print_options
   puts "#{LIST_ALL_BOOKS_CODE}) List all books"
@@ -17,6 +18,7 @@ def print_options
   puts "#{CREATE_A_BOOK_CODE}) Create a book"
   puts "#{CREATE_A_RENTAL_CODE}) Create a rental"
   puts "#{LIST_ALL_RENTALS_CODE}) List all rentals for a given person id"
+  puts "#{EXIT_CODE}) Terminate"
 end
 
 def create_book
@@ -143,6 +145,9 @@ def main
       rentals.push(create_rental(books, people))
     when LIST_ALL_RENTALS_CODE
       list_rentals(rentals)
+    when EXIT_CODE
+      puts 'Thank you for using this app.'
+      return
     end
   end
 end
