@@ -8,6 +8,22 @@ def print_options
   puts "#{LIST_ALL_PEOPLE_CODE}) List all people"
 end
 
+def create_person
+  loop do
+    system 'clear'
+    puts '1) To create teacher'
+    puts '2) To create student'
+    case gets.chomp
+    when '1'
+      return create_teacher
+    when '2'
+      return create_student
+    else
+      puts 'Wrong input, try again!'
+    end
+  end
+end
+
 def main
   books = []
   loop do
