@@ -12,6 +12,8 @@ Things done so far:
 
 3. Create associations between classes
 
+4. Add terminal UI
+
 ## Technologies Used
 
 Ruby
