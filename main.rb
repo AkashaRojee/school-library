@@ -8,6 +8,7 @@ LIST_ALL_PEOPLE_CODE = '2'.freeze
 CREATE_A_PERSON_CODE = '3'.freeze
 CREATE_A_BOOK_CODE = '4'.freeze
 CREATE_A_RENTAL_CODE = '5'.freeze
+LIST_ALL_RENTALS_CODE = '6'.freeze
 
 def print_options
   puts "#{LIST_ALL_BOOKS_CODE}) List all books"
@@ -15,6 +16,7 @@ def print_options
   puts "#{CREATE_A_PERSON_CODE}) Create a person"
   puts "#{CREATE_A_BOOK_CODE}) Create a book"
   puts "#{CREATE_A_RENTAL_CODE}) Create a rental"
+  puts "#{LIST_ALL_RENTALS_CODE}) List all rentals for a given person id"
 end
 
 def create_book
@@ -115,6 +117,14 @@ def create_rental(books, people)
   Rental.new(user_date, book, person)
 end
 
+def list_rentals(rentals)
+  system 'clear'
+  person_id = id
+  rentals.each do |rent|
+    puts rent.details if rent.person.id.eql? person_id
+  end
+end
+
 def main
   books = []
   people = []
@@ -131,6 +141,8 @@ def main
       books.push(create_book)
     when CREATE_A_RENTAL_CODE
       rentals.push(create_rental(books, people))
+    when LIST_ALL_RENTALS_CODE
+      list_rentals(rentals)
     end
   end
 end
