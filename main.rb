@@ -2,10 +2,12 @@ require_relative './book'
 
 LIST_ALL_BOOKS_CODE = '1'.freeze
 LIST_ALL_PEOPLE_CODE = '2'.freeze
+CREATE_A_PERSON_CODE = '3'.freeze
 
 def print_options
   puts "#{LIST_ALL_BOOKS_CODE}) List all books"
   puts "#{LIST_ALL_PEOPLE_CODE}) List all people"
+  puts "#{CREATE_A_PERSON_CODE}) Create a person"
 end
 
 def create_book
@@ -60,6 +62,7 @@ end
 
 def main
   books = []
+  people = []
   loop do
     print_options
     case gets.chomp
@@ -67,6 +70,8 @@ def main
       books.each { |book| puts book.details }
     when LIST_ALL_PEOPLE_CODE
       people.each { |pep| puts pep.details }
+    when CREATE_A_PERSON_CODE
+      people.push(create_person)
     end
   end
 end
